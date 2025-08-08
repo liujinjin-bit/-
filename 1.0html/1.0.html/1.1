@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>纯 CSS 切换特效</title>
+  <style>
+    /* 重置默认样式 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* 容器布局 */
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      padding: 20px;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* 图片区布局 */
+    .image-row {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      min-height: 250px; /* 预留放大空间 */
+    }
+
+    /* 图片基础样式 */
+    .image-row img {
+      width: 120px;
+      height: auto;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 1;
+      position: relative;
+      opacity: 0.8; /* 默认半透明 */
+    }
+
+    /* 圆点区布局 */
+    .dot-row {
+      display: flex;
+      gap: 20px;
+    }
+
+    /* 隐藏原生单选框 */
+    .dot-row input[type="radio"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 0;
+      height: 0;
+      position: absolute;
+      left: -9999px; /* 彻底移出视口 */
+    }
+
+    /* 圆点样式（未选中） */
+    .dot-row label {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid #999;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 2; /* 确保圆点在图片上层，可点击 */
+    }
+
+    /* -------------------- 核心联动逻辑 -------------------- */
+    /* 当第 1 个圆点被选中时，第 1 张图片放大 */
+    #dot0:checked ~ .image-row #img0,
+    #dot1:checked ~ .image-row #img1,
+    #dot2:checked ~ .image-row #img2,
+    #dot3:checked ~ .image-row #img3,
+    #dot4:checked ~ .image-row #img4 {
+      width: 300px;
+      transform: scale(1.5);
+      z-index: 10;
+      opacity: 1;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    /* 圆点选中样式 */
+    #dot0:checked + label,
+    #dot1:checked + label,
+    #dot2:checked + label,
+    #dot3:checked + label,
+    #dot4:checked + label {
+      background-color: #ff6347;
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 圆点区：通过 ~ 选择器联动图片 -->
+    <div class="dot-row">
+      <input type="radio" name="dot" id="dot0" checked>
+      <label for="dot0"></label>
+
+      <input type="radio" name="dot" id="dot1">
+      <label for="dot1"></label>
+
+      <input type="radio" name="dot" id="dot2">
+      <label for="dot2"></label>
+
+      <input type="radio" name="dot" id="dot3">
+      <label for="dot3"></label>
+
+      <input type="radio" name="dot" id="dot4">
+      <label for="dot4"></label>
+    </div>
+
+    <!-- 图片区：给每个图片加唯一 ID，用于联动 -->
+    <div class="image-row">
+      <img src="photo1/国家1.jpg" alt="图片1" id="img0">
+      <img src="photo1/国家1.jpg" alt="图片2" id="img1">
+      <img src="photo1/国家1.jpg" alt="图片3" id="img2">
+      <img src="photo1/国家1.jpg" alt="图片4" id="img3">
+      <img src="photo1/国家1.jpg" alt="图片5" id="img4">
+    </div>
+  </div>
+</body>
+</html>

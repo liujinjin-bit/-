@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body{
+      background-color: #b1c1a4;
+    }
+  </style>
+  <style type="text/css">
+    .nav{
+      height:40px;
+      background-color: #4d7456;
+      /*给他个阴影*/
+      box-shadow: 0 1px 2px #666;
+    }
+    /*去掉各种不必要*/
+    *{
+      /*内外边距为0*/
+      margin: 0;
+      padding: 0;
+      /*各种样式列表为空*/
+      text-decoration: none;
+      list-style: none;
+    }
+    .btli{
+      /*左浮动，让他们横排*/
+      float:left;
+      /*宽，行高*/
+      width: 200px;
+      line-height: 40px;
+      /*对齐方式是水平居中*/
+      text-align: center;
+      align-content: center;
+    }
+    .navlist a{
+      /*超链接的字体为白色*/
+      color: #fff;
+      /*让他以块模式来显示*/
+      display: block;
+      
+    }
+    /*鼠标悬停时，背景变色*/
+    .navlist a:hover{
+      background-color: hsl(124, 32%, 17%);
+    }
+    .droplist{
+      /*改变下拉列表颜色*/
+      background-color: #7f9c86;
+      /*加个阴影*/
+      box-shadow: 0 1px 2px #333;
+      /*让他不显示*/
+      display:none;
+
+    }
+    /*让鼠标移到导航项时下拉显示*/
+    .btli:hover .droplist{
+      display: block;
+    }
+    .centent{
+      background-image:url(photo1/微信图片_2025-08-07_162852_093.jpg) ;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center bottom;
+      background-attachment:fixed;
+    }
+  </style>
+
+    <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      padding: 20px;
+      position: relative;
+    }
+
+    /* 圆点区 */
+    .dot-row {
+      display: flex;
+      gap: 20px;
+    }
+
+    .dot-row input[type="radio"] {
+      appearance: none;
+      width: 0;
+      height: 0;
+      position: absolute;
+      left: -9999px;
+    }
+
+    .dot-row label {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid #999;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    /* 图片区 */
+    .image-row {
+      display: flex;
+      gap: 20px;
+      min-height: 200px;
+    }
+
+    .image-row img {
+      width: 120px;
+      height: auto;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 核心联动逻辑（必须严格按结构和 ID 写） */
+    #dot0:checked ~ .image-row #img0,
+    #dot1:checked ~ .image-row #img1,
+    #dot2:checked ~ .image-row #img2,
+    #dot3:checked ~ .image-row #img3,
+    #dot4:checked ~ .image-row #img4 {
+      width: 300px;
+      transform: scale(1.5);
+      z-index: 10;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    #dot0:checked + label,
+    #dot1:checked + label,
+    #dot2:checked + label,
+    #dot3:checked + label,
+    #dot4:checked + label {
+      background-color: #ff6347;
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+   
+  <!-- 先做出导航栏 -->
+   <div class="nav">
+    <ul class="navlist">
+      <!--下拉列表-->
+      <li class="btli"><a href="#">首页</a>
+        <ul class="droplist">
+          <li><a href="#bottom0" name="top">拳意</a></li>
+          <li><a href="#bottom1" name="top">热门拳法</a></li>
+          <li><a href="#bottom2" name="top">传承困境</a></li>
+        </ul>
+      </li>
+      <li class="btli"><a href="#">传承</a>
+        <ul class="droplist">
+          <li><a href="#">杨俊伟老师</a></li>
+          <li><a href="#">河南文旅</a></li>
+        </ul>
+      </li>
+
+      <li class="btli"><a href="#">创新</a>
+        <ul class="droplist">
+          <li><a href="#">与游戏结合</a></li>
+          <li><a href="#">与时代呼应</a></li>
+        </ul>
+      </li>
+
+      <li class="btli"><a href="#">产品中心</a>
+        <ul class="droplist">
+          <li><a href="#">小程序</a></li>
+          <li><a href="#">文创</a></li>
+        </ul>
+      </li>
+
+      <li class="btli"><a href="#">关于我们</a></li>
+
+    </ul>
+   </div>
+         <div style="background-image:url(photo1/微信图片_2025-08-07_162852_093.jpg);width: 100%;
+          height: 600px; 
+          background-repeat: no-repeat;
+          background-size: contain;
+          margin-bottom: 1px;">
+          <!--试图插入图片-->
+          </div>
+          <div style="background-image:url(photo1/微信图片_2025-08-07_180313_856.jpg);width: 45%; 
+          height: 300px; 
+          background-repeat: no-repeat; 
+          background-size: contain; 
+          margin-left: 30px;
+          display: inline-block;
+          vertical-align: middle;
+          margin-bottom: 10px;
+          margin-top: 0px;">
+          <!--试图插入图片-->
+          </div>
+          <div style="width: 45%; display: inline-block;margin-left: 20px;margin: right 30px;margin-top: 20px;">
+            <a href="#" name="bottom0" ></a>
+           <h3>拳意</h3>
+           <p>中华传统拳文化是中国武术的核心，融合技击、养生与哲学，承载着民族智慧。其起源于生存与军事需求，明清时期形成少林拳、太极拳、形意拳等数百流派，分“外家”（刚猛，如少林）与“内家”（柔化，如太极）。核心讲究“内外兼修”：外练筋骨，内修意气，更以“武德”为要，倡导“止戈为武”“仁义勇信”。体现着“刚柔并济”“天人合一”的东方智慧。</p>
+              <div style="background-image:url(photo1/微信图片_2025-08-07_201635_803.jpg);
+              height: 100px; 
+              background-repeat: no-repeat; 
+              background-size: contain; 
+              background-position: left; ">
+                <!--试图插入图片-->
+              </div>
+
+          </div>
+        
+        <div style="text-align: center;">
+              <div>
+              <a href="#" name="bottom1" ></a>
+              <h2 style="margin-top: 20px !important;margin-bottom: 20px;">热门拳法</h2>
+              
+              </div>
+             <!-- 外层用 flex 垂直布局 -->
+              <div style="
+               display: inline-block;
+               width: 22%;
+               margin-left: 20px;
+               vertical-align: middle;">
+              <!-- 背景图容器 -->
+                 <div style="
+                 background-image: url(photo1/太极拳·.jpg);
+                 height: 200px;
+                 background-repeat: no-repeat;
+                 background-size: contain;
+                 background-position: left;
+                 "></div>
+              <!-- 文字容器，自动居下 -->
+                 <h3 style="
+                 text-align: center;
+                 margin-top: 5px; /* 与图片间距 */
+                 ">太极拳</h3>
+                 <span style="font-size: 12px;">以柔克刚，行云流水，一招一式暗含阴阳之道，于缓慢中见巧劲，重内外兼修。</span>
+              </div>
+
+              <!-- 外层用 flex 垂直布局 -->
+              <div style="
+               display: inline-block;
+               width: 22%;
+               margin-left: 20px;
+               vertical-align: middle;">
+              <!-- 背景图容器 -->
+                 <div style="
+                 background-image: url(photo1/蒋家拳.jpg);
+                 height: 200px;
+                 background-repeat: no-repeat;
+                 background-size: contain;
+                 background-position: left;
+                 "></div>
+              <!-- 文字容器，自动居下 -->
+                 <h4 style="
+                 text-align: center;
+                 margin-top: 5px; /* 与图片间距 */
+                 ">蒋家拳</h4>
+                 <span style="font-size: 12px;">刚柔相济，招式精悍，攻防转换灵动迅捷，融实战技巧与身法协调于一体。</span>
+              </div>
+
+              <!-- 外层用 flex 垂直布局 -->
+              <div style="
+               display: inline-block;
+               width: 22%;
+               margin-left: 20px;
+               vertical-align: middle;">
+              <!-- 背景图容器 -->
+                 <div style="
+                 background-image: url(photo1/少林拳.jpg);
+                 height: 200px;
+                 background-repeat: no-repeat;
+                 background-size: contain;
+                 background-position: left;
+                 "></div>
+              <!-- 文字容器，自动居下 -->
+                 <h4 style="
+                 text-align: center;
+                 margin-top: 5px; /* 与图片间距 */
+                 ">少林拳</h4>
+                 <span style="font-size: 12px;">刚猛有力，大开大合，拳风硬朗如猛虎下山，讲究桩功扎实、硬功见长。</span>
+              </div>
+
+              <!-- 外层用 flex 垂直布局 -->
+              <div style="
+               display: inline-block;
+               width: 22%;
+               margin-left: 20px;
+               vertical-align: middle;">
+              <!-- 背景图容器 -->
+                 <div style="
+                 background-image: url(photo1/心意拳.jpg);
+                 height: 200px;
+                 background-repeat: no-repeat;
+                 background-size: contain;
+                 background-position: left;
+                 "></div>
+              <!-- 文字容器，自动居下 -->
+                 <h4 style="
+                 text-align: center;
+                 margin-top: 5px; /* 与图片间距 */
+                 ">心意拳</h4>
+                 <span style="font-size: 12px;">简洁凌厉，意到拳到，以五行生克为理，重内意引导外功，出手迅猛直接。</span>
+              </div>
+        </div>
+    <div style="text-align: center;background-color:  #4d7456;padding: 5px 8px;margin-top: 80px !important;margin-left: 30px;margin-right: 30px;color: aliceblue;">
+      <a href="#" name="bottom2" ></a>
+      <h2 style="margin-bottom: 10px;">传承困境</h2>
+      <span style="font-size: 12px;">- 传统模式失效：传统拳术多依赖“师徒制”“家族传承”，讲究“择徒而教”“口传心授”，甚至存在“留一手”的保守心态。这种模式在现代社会难以持续——城市化打破了地域聚集性，年轻人流动性强，难以长期跟随师傅系统学习；快节奏生活也让“十年磨一剑”的耐心变得稀缺。</span>
+      <span style="font-size: 12px;">- 教学标准化缺失：多数拳种缺乏统一的技术体系和教学规范，技法依赖师傅个人经验，“只可意会不可言传”的内容较多（如“内劲”“气感”等），导致传承中易出现偏差，后代学习者往往只能学到“形”，难以掌握“神”。- 老辈传承者凋零：许多掌握核心技艺的老拳师年事已高，部分技艺随其离世而失传，而中年一代因时代原因（如过去对传统武术的冲击）断层严重，难以衔接。
+
+- 年轻群体参与度低：年轻人对传统拳术的认知多停留在“武侠影视”层面，对其枯燥的基础训练、缓慢的见效过程缺乏耐心；同时，学习拳术难以带来直接的经济回报（如职业发展、收入保障），导致愿意投身传承的年轻人极少。</span>
+    </div>
+    <div style="display: flex; gap: 10px; margin-left: 25px;margin-top: 40px;width: 800px;height: 300px;">
+      <div style="width: 45%;" >
+       <!--<h3>苌家拳杨俊伟老师</h3>
+       <p>传承贡献</p>
+       <span style="font-size: 12px;">- 创办拳馆，培养人才：杨俊伟创办拳馆，带领学员征战全国赛事及世界传统武术锦标赛，还与高校合作，培养出王水利、闫江华等第十代传人。- 推动非遗进校园：积极推动“非遗进校园”活动，让苌家拳在郑州20余所中小学落地生根，使更多青少年接触和了解苌家拳。- 借助新媒体传播：遭遇水灾、疫情导致拳馆闭馆时，迅速转型，借助新媒体平台持续传播拳术，扩大了苌家拳的影响力。</span>
+      </div>
+      <div  style="display: flex;background-image:url(photo1/拳书.jpg);background-size: auto 200px;background-repeat: no-repeat;
+      width:300px;height: 300px;margin-left: 20px;
+      margin: 0;padding: 0;">
+
+      </div>
+      <div  style="display: flex;background-image:url(photo1/微信图片_2025-08-08_134127_210.jpg);background-size: auto 200px;background-repeat: no-repeat;
+      width:300px;height: 300px;
+      margin: 0;padding: 0;"> -->
+      <div style="display: flex; gap: 10px; margin-left: 5px; margin-top: 40px; width: 953px;">
+          <!-- 左侧文字区（宽度45%，高度自适应） -->
+          <div style="width: 60%;">
+           <h3>苌家拳杨俊伟老师</h3>
+           <p>传承贡献</p >
+           <span style="font-size: 12px;">- 创办拳馆，培养人才：杨俊伟创办拳馆，带领学员征战全国赛事及世界传统武术锦标赛，还与高校合作，培养出王水利、闫江华等第十代传人。- 推动非遗进校园：积极推动“非遗进校园”活动，让苌家拳在郑州20余所中小学落地生根，使更多青少年接触和了解苌家拳。- 借助新媒体传播：遭遇水灾、疫情导致拳馆闭馆时，迅速转型，借助新媒体平台持续传播拳术，扩大了苌家拳的影响力。</span>
+          </div>
+          <div style="width: 25%;">
+            <h3>“拳意”团队</h3>
+           <span style="font-size: 12px;">“拳意”团队已经和苌家拳的第九代传承人杨俊伟老师达成了一定的合作。在未来，团队也会和更多非遗传承人达成合作共识，每周时进行线上直播授课以解惑，用户页可及角以在空闲时间观看回放学习</span>
+          </div>
+          <!-- 中间图片（自动适应间距，无需硬写宽高） -->
+          <img src="photo1/拳书.jpg" alt="拳书" class="slide" style="width: auto; height: 200px; object-fit: contain;">
+
+          <!-- 右侧图片（同上） --> 
+          <img src="photo1/微信图片_2025-08-08_134127_210.jpg" alt="拳师"  class="slide" style="width: auto; height: 200px; object-fit: contain;">
+          <img src="photo1/动漫.jpg" alt="拳书"  class="slide" style="width: auto; height: 200px; object-fit: contain;">
+        </div>
+
+      </div>
+
+    <div class="container">
+    <!-- 圆点区 -->
+    <div class="dot-row">
+      <input type="radio" name="dot" id="dot0" checked>
+      <label for="dot0"></label>
+
+      <input type="radio" name="dot" id="dot1">
+      <label for="dot1"></label>
+
+      <input type="radio" name="dot" id="dot2">
+      <label for="dot2"></label>
+
+      <input type="radio" name="dot" id="dot3">
+      <label for="dot3"></label>
+
+      <input type="radio" name="dot" id="dot4">
+      <label for="dot4"></label>
+    </div>
+
+    <!-- 图片区（必须和 .dot-row 同级！） -->
+    <div class="image-row">
+      <img src="photo1/国家1.jpg" alt="图1" id="img0">
+      <img src="photo1/国家1.jpg" alt="图2" id="img1">
+      <img src="photo1/国家1.jpg" alt="图3" id="img2">
+      <img src="photo1/国家1.jpg" alt="图4" id="img3">
+      <img src="photo1/国家1.jpg" alt="图5" id="img4">
+    </div>
+  </div>
+    
+  <!-- 第三块：页脚 -->
+  <div>
+    <span style="font-size: 10px;">拳意策划组版权所有</span>
+  </div>
+</body>
+</html>
